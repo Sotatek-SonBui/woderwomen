@@ -17,7 +17,8 @@ public:
 
 signals:
     void colorChanged();
-
+public slots:
+    void testSlot();
 private:
     QString mColor = "red";
 };
