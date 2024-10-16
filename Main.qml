@@ -14,57 +14,95 @@ Window {
         x: 130
         y: 100
         spacing: 200
-        Button {
-            id: button1
-            width: 100
-            height: 100
-            text: "Button 1"
-            font.pixelSize: 20
 
-            ButtonAction {
-                id: buttonAction1
+        Column {
+            Button {
+                id: button1
+                width: 100
+                height: 100
+                text: "Button 1"
+                font.pixelSize: 20
+
+                ButtonAction {
+                    id: buttonAction1
+                }
+
+                onClicked: {
+                    buttonAction1.doSomething(button1.text)
+                    // console.log(buttonAction1.color)
+                    // buttonAction1.color = "green"
+                    // onColorChanged: {
+                    //     console.log("color is changed to: ", buttonAction1.color)
+                    // }
+                    // buttonAction1.testSlot()
+                }
             }
 
-            onClicked: {
-                buttonAction1.doSomething(button1.text)
-                // buttonAction1.color = "green"
-                // console.log(buttonAction1.color)
-                // onColorChanged: {
-                //     console.log("color is changed to: ", buttonAction1.color)
-                // }
-            }
+            ComboBox {
+                width: 100
+                model: ["batman", "superman", "spiderman", "aquaman"]
+                currentIndex: 0
 
-        }
-
-        Button {
-            id: button2
-            width: 100
-            height: 100
-            text: "Button 2"
-            font.pixelSize: 20
-
-            ButtonAction {
-                id: buttonAction2
-            }
-
-            onClicked: {
-                buttonAction2.doSomething(button2.text)
+                onCurrentTextChanged: {
+                    // buttonAction1.colorChanged()
+                    console.log("Select1: " + currentText);
+                }
             }
         }
 
-        Button {
-            id: button3
-            width: 100
-            height: 100
-            text: "Button 3"
-            font.pixelSize: 20
+        Column {
+            Button {
+                id: button2
+                width: 100
+                height: 100
+                text: "Button 2"
+                font.pixelSize: 20
 
-            ButtonAction {
-                id: buttonAction3
+                ButtonAction {
+                    id: buttonAction2
+                }
+
+                onClicked: {
+                    buttonAction2.doSomething(button2.text)
+                }
             }
 
-            onClicked: {
-                buttonAction3.doSomething(button3.text)
+            ComboBox {
+                width: 100
+                model: ["batman", "superman", "spiderman", "aquaman"]
+                currentIndex: 0
+
+                onCurrentTextChanged: {
+                    console.log("Select2: " + currentText);
+                }
+            }
+        }
+
+        Column {
+            Button {
+                id: button3
+                width: 100
+                height: 100
+                text: "Button 3"
+                font.pixelSize: 20
+
+                ButtonAction {
+                    id: buttonAction3
+                }
+
+                onClicked: {
+                    buttonAction3.doSomething(button3.text)
+                }
+            }
+
+            ComboBox {
+                width: 100
+                model: ["batman", "superman", "spiderman", "aquaman"]
+                currentIndex: 0
+
+                onCurrentTextChanged: {
+                    console.log("Select: " + currentText);
+                }
             }
         }
     }
@@ -73,53 +111,89 @@ Window {
         x: 130
         y: 350
         spacing: 200
-        Button {
-            id: button4
-            width: 100
-            height: 100
-            text: "Button 4"
-            font.pixelSize: 20
 
-            ButtonAction {
-                id: buttonAction4
+        Column {
+            Button {
+                id: button4
+                width: 100
+                height: 100
+                text: "Button 4"
+                font.pixelSize: 20
+
+                ButtonAction {
+                    id: buttonAction4
+                }
+
+                onClicked: {
+                    buttonAction4.doSomething(button4.text)
+                }
             }
 
-            onClicked: {
-                buttonAction4.doSomething(button4.text)
-            }
-        }
+            ComboBox {
+                width: 100
+                model: ["batman", "superman", "spiderman", "aquaman"]
+                currentIndex: 0
 
-        Button {
-            id: button5
-            width: 100
-            height: 100
-            text: "Button 5"
-            font.pixelSize: 20
-
-            ButtonAction {
-                id: buttonAction5
-            }
-
-            onClicked: {
-                buttonAction5.doSomething(button5.text)
+                onCurrentTextChanged: {
+                    console.log("Select: " + currentText);
+                }
             }
         }
 
-        Button {
-            id: button6
-            width: 100
-            height: 100
-            text: "Button 6"
-            font.pixelSize: 20
+        Column {
+            Button {
+                id: button5
+                width: 100
+                height: 100
+                text: "Button 5"
+                font.pixelSize: 20
 
-            ButtonAction {
-                id: buttonAction6
+                ButtonAction {
+                    id: buttonAction5
+                }
+
+                onClicked: {
+                    buttonAction5.doSomething(button5.text)
+                }
             }
 
-            onClicked: {
-                buttonAction6.doSomething(button6.text)
+            ComboBox {
+                width: 100
+                model: ["batman", "superman", "spiderman", "aquaman"]
+                currentIndex: 0
+
+                onCurrentTextChanged: {
+                    console.log("Select: " + currentText);
+                }
+            }
+        }
+
+        Column {
+            Button {
+                id: button6
+                width: 100
+                height: 100
+                text: "Button 6"
+                font.pixelSize: 20
+
+                ButtonAction {
+                    id: buttonAction6
+                }
+
+                onClicked: {
+                    buttonAction6.doSomething(button6.text)
+                }
+            }
+
+            ComboBox {
+                width: 100
+                model: ["batman", "superman", "spiderman", "aquaman"]
+                currentIndex: 0
+
+                onCurrentTextChanged: {
+                    console.log("Select: " + currentText);
+                }
             }
         }
     }
-
 }

@@ -5,7 +5,9 @@
 
 ButtonAction::ButtonAction(QObject *parent)
     : QObject{parent}
-{}
+{
+    connect(this, &ButtonAction::colorChanged, this, &ButtonAction::testSlot);
+}
 
 void ButtonAction::doSomething(const QString &actionName)
 {
@@ -27,4 +29,10 @@ void ButtonAction::setColor(const QString &color)
 QString ButtonAction::color()
 {
     return mColor;
+}
+
+void ButtonAction::testSlot()
+{
+    qInfo() << "Display in slot:" << mColor;
+    mColor = "red";
 }
