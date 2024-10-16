@@ -4,8 +4,6 @@
 #include <QObject>
 #include <QDebug>
 
-#define log qDebug() << __LINE__ << __PRETTY_FUNCTION__
-
 class ButtonAction : public QObject
 {
     Q_OBJECT

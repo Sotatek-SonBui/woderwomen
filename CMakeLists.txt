@@ -6,6 +6,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt6 6.5 REQUIRED COMPONENTS Quick)
 
+# Find the package using pkg-config
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(LIBPIPEWIRE REQUIRED libpipewire-0.3)
+
 qt_standard_project_setup(REQUIRES 6.5)
 
 qt_add_executable(appmusic_test
@@ -31,9 +35,16 @@ set_target_properties(appmusic_test PROPERTIES
     WIN32_EXECUTABLE TRUE
 )
 
+# Include the directories
+target_include_directories(appmusic_test PRIVATE ${LIBPIPEWIRE_INCLUDE_DIRS})
+
 target_link_libraries(appmusic_test
     PRIVATE Qt6::Quick
+    ${LIBPIPEWIRE_LIBRARIES}
 )
+
+# Add compile options
+target_compile_options(appmusic_test PRIVATE ${LIBPIPEWIRE_CFLAGS_OTHER} -Wall)
 
 qt_add_resources(appmusic_test "qml"
     PREFIX
